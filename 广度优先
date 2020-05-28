@@ -1,0 +1,39 @@
+从上到下打印二叉树（面试题32）
+def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        # deque=[root]
+        # res=[]
+        # while deque:
+        #     #cur=deque.popleft()
+        #     cur=deque.pop()
+        #     if cur:
+        #         res.append(cur.val)
+        #         if cur.left:
+        #             deque.append(cur.left)
+        #         if cur.right:
+        #             deque.append(cur.right)
+        # return res
+        if not root:
+           return []
+        deque = [root]
+        result = []
+        times = 1
+        while deque:
+            out = []
+            temp = []
+            while deque:
+                k = deque.pop()
+                temp.append(k.val)
+                if times % 2:
+                    if k.left:
+                        out.append(k.left)
+                    if k.right:
+                        out.append(k.right)
+                else:
+                    if k.right:
+                        out.append(k.right)
+                    if k.left:
+                        out.append(k.left)
+            result.append(temp)
+            deque = out
+            times += 1
+        return result
