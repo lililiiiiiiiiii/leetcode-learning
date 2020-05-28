@@ -1,0 +1,33 @@
+1.利用哈希表，一个数组用哈希表表示，查找另一个数组
+def intersect(self,nums1,nums2):
+  hash={}
+  for i in nums:
+    if i not in hash:
+      hash[i]=1
+    else:
+      hash[i]+=1
+   res=[] 
+   for j in nums2:
+      if hash[j]>0
+        res.append(j)
+        hash[j]-=1
+        
+    return res
+    
+2.排序后双指正
+def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        nums1.sort()
+        nums2.sort()
+        result = []
+        i, j = 0, 0
+        while i < len(nums1) and j < len(nums2):
+            if nums1[i] < nums2[j]:
+                i += 1
+            elif nums1[i] > nums2[j]:
+                j += 1
+            else:
+                result.append(nums1[i])
+                i += 1
+                j += 1
+        return result
+
