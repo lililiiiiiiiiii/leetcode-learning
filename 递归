@@ -1,0 +1,15 @@
+
+删除链表的第N个节点（不是很懂递归咋回事啊，要加强！！！！）
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        global count
+        if head is None:
+            count=0
+            return None
+        head.next=self.removeNthFromEnd(head.next,n)
+        count+=1
+        return head.next if n==count else head 
+        
+双指针解法：
+
+
