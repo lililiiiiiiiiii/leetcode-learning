@@ -6,10 +6,10 @@ class Solution:
         if head is None:
             count=0
             return None
-        head.next=self.removeNthFromEnd(head.next,n)
+        head.next=self.removeNthFromEnd(head.next,n)#将指针调向最后
         count+=1
         return head.next if n==count else head 
         
-双指针解法：
+ #只要没有指针指向第n个数就可以去除第n个数 
 
 
