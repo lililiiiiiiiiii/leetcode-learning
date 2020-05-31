@@ -29,3 +29,7 @@ def threeSum(self, nums: List[int]) -> List[List[int]]:
                 else:
                     L=L+1
         return res
+  
+  2.删除链表的倒数第n个指针
+  
+
