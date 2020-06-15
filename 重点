@@ -1,0 +1,16 @@
+（448）找到所有数组中消失的数字
+def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        res = []
+        for i in range(len(nums)):
+            while nums[nums[i] - 1] != nums[i]:
+                tmp = nums[i]
+                loc = nums[i] - 1
+                nums[i] = nums[nums[i] - 1]
+                nums[loc] = tmp
+        for idx, val in enumerate(nums, 1):
+            if val != idx:
+                res.append(idx)
+        return res
+        
+        
+   
