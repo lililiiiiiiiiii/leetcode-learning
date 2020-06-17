@@ -30,5 +30,23 @@ def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
                 res = max(res, tmp)
         return res
      
+（84）柱状图中的最大矩形（难！）
+分析:单调栈
+def largestRectangleArea(self, heights: List[int]) -> int:
+        stack = []
+        # 单调递增栈
+        maxmun = 0
+        heights = [0] + heights + [0]    # 添加左右两侧的特殊边界使得只有一个柱子时，也可以形成一个倒V型
         
+        for i in range(len(heights)):
+            # 对于stack[-1]来说其right_i=i，left_i=stack[-2]
+            while len(stack) > 0 and heights[i] < heights[stack[-1]]:
+                top = stack.pop()
+                s = (i - stack[-1] - 1) * heights[top]
+                maxmun = max(s, maxmun)
+
+            stack.append(i)
+
+        return maxmun
+
    
