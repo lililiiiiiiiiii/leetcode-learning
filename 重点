@@ -14,6 +14,7 @@ def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         
         
   最长连续序列，时间复杂度为O（n）（128）
+  理解：https://www.cnblogs.com/grandyang/p/8887985.html
   
   分析：判断当前数字是不是序列里最小的数字，如果是进入循环找最长序列。
   class Solution:
