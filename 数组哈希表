@@ -13,3 +13,17 @@ def nextPermutation(self, nums: List[int]) -> None:
                         break
                 return
         nums.sort()
+和为k的子数组（560）
+def subarraySum(self, nums: List[int], k: int) -> int:
+        acc = count = 0
+        for num in nums:
+            acc += num
+            if acc == k:
+                count += 1
+            if acc - k in d:
+                count += d[acc-k]
+            if acc in d:
+                d[acc] += 1
+            else:
+                d[acc] = 1
+        return count
