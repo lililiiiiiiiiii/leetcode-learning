@@ -1,0 +1,11 @@
+二叉树的最近公共祖先（236）
+分析：3种情况 1.p,q在root左右子树，结果为root.2.p=root，且 qq 在 rootroot 的左或右子树中。3.q=root ，且 pp 在 rootroot 的左或右子树中
+
+def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if not root or root == p or root == q: return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        if not left: return right
+        if not right: return left
+        return root
+              
