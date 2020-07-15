@@ -58,3 +58,27 @@ def isValidBST(self, root):
         helper(root)
 
         #将左子树插入右子树，将原来的右子树接入左子树的最右边，考虑新的右子树节点。
+
+110 平衡二叉树
+自下而上
+class Solution:
+    def isBalanced(self, root: TreeNode) -> bool:
+        return self.recur(root) != -1
+    def recur(self, root):
+        if not root: return 0
+        left = self.recur(root.left)
+        if left == -1: return -1
+        right = self.recur(root.right)
+        if right == -1: return -1
+        return max(left, right) + 1 if abs(left - right) < 2 else -1
+  自上而下
+  # class Solution:
+#     def isBalanced(self, root: TreeNode) -> bool:
+#         if not root:
+#             return True
+#         return abs(self.height(root.right)-self.height(root.left))<2 and self.isBalanced(root.left) and self.isBalanced(root.right)
+	
+#     def height(self, node):
+#         if not node:
+#             return 0
+#         return 1+max(self.height(node.right),self.height(node.left))
